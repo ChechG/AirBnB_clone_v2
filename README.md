@@ -1,4 +1,4 @@
-<center> <h1>HBNB - AirBnb Clone</h1> </center>
+<center> <h1>HBNB -- AirBnb Clone</h1> </center>
 
 <center><h3> The Console: <h3></center>
 This repository contains the first and second stages of a collaborative student project to build a clone of the AirBnB website. 
