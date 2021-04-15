@@ -12,11 +12,8 @@ def do_deploy(archive_path):
     if os.path.exists(archive_path):
         try:
             put(archive_path, "/tmp/")
-            """ file_name name of file with .tgz """
             file_name = archive_path.split("/")[1]
-            """ file_name2 name of file without .tgz """
             file_name2 = file_name.split(".")[0]
-            """ final_name name of path of directory """
             final_name = "/data/web_static/releases/" + file_name2 + "/"
             run("mkdir -p " + final_name)
             run("tar -xzf /tmp/" + file_name + " -C " + final_name)
