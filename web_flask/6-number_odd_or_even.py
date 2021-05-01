@@ -32,27 +32,24 @@ def py_text(text="is_cool"):
         text = text.replace("_", " ")
     return 'Python %s' % text
 
-@app.route('/number/<n>')
+@app.route('/number/<int:n>')
 def py_int(n):
     """ returns variable string """
-    if n.isdigit() is True:
-        return "%s is a number" % n
+    return '%d is a number' % n
 
-@app.route('/number_template/<n>')
+@app.route('/number_template/<int:n>')
 def n_temp(n):
     """ returns html page if int"""
-    if n.isdigit() is True:
-        return render_template('5-number.html', n=n)
+    return render_template('5-number.html', n=n)
 
-@app.route('/number_odd_or_even/<n>')
+@app.route('/number_odd_or_even/<int:n>')
 def n_odd_even(n):
     """ returns html page if int odd/even"""
-    if n.isdigit() is True:
-        if int(n) % 2 == 0:
-            o = "even"
-        else:
-            o = "odd"            
-        return render_template('6-number_odd_or_even.html', n=n, odd=o)
+    if n % 2 == 0:
+        o = "even"
+    else:
+        o = "odd"            
+    return render_template('6-number_odd_or_even.html', n=n, odd=o)
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=5000)

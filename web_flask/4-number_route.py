@@ -34,7 +34,7 @@ def py_text(text="is_cool"):
     return 'Python %s' % text
 
 
-@app.route('/number/<n>')
+@app.route('/number/<int:n>')
 def py_int(n):
     """ returns variable string """
     return '%d is a number' % n
