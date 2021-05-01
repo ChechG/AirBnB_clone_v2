@@ -8,6 +8,7 @@ from models import State, City
 app = Flask(__name__)
 app.url_map.strict_slashes = False
 
+
 @app.teardown_appcontext
 def teardown_db(exception):
     """ remove the current SQLAlchemy Session """
