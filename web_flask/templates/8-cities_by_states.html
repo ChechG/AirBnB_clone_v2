@@ -6,10 +6,10 @@
     <BODY>
         <H1>Cities</H1>
         <UL>
-            {% for i in dbs -%}
+            {% for i in dbs|sort(attribute="name") -%}
                 <LI>State: {{ i.id }}: <B>{{ i.name }}</B></LI>
                     <UL>
-                        {% for j in dbc -%}
+                        {% for j in dbc|sort(attribute="name") -%}
                             {% if dbc[j].state_id == i.id %}
                                 <LI>City: {{ dbc[j].id }}: <B>{{ dbc[j].name }}</B></LI>
                             {% endif %}
