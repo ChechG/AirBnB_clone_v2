@@ -30,5 +30,10 @@ def st_ci_list(id):
     return render_template('9-states.html', cities=cities, ej=ej)
 
 
+@app.errorhandler(404)
+def page_not_found(error):
+    return render_template('9-states.html')
+
+
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=5000)
