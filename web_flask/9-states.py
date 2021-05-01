@@ -20,13 +20,13 @@ def teardown_db(exception):
 def st_ci_list(id=None):
     """ returns html page of state with cities list """
     cit = storage.all(State)
-    states = cities.values()
-    if id is None:
+    states = cit.values()
+    if id == None:
         return render_template('9-states.html', states=states, id=id)
     else:
         ej = 'State.' + str(id)
-        if ej in cities:
-            return render_template('9-states.html', cities=cit, ej=ej, id=id)
+        if ej in cit:
+            return render_template('9-states.html', cit=cit, ej=ej, id=id)
         else:
             return render_template('9-states.html')
 
