@@ -19,8 +19,7 @@ def teardown_db(exception):
 def cities_list():
     """ returns html page with states list """
     dbs = storage.all(State).values()
-    dbc = storage.all(City)
-    return render_template('8-cities_by_states.html', dbs=dbs, dbc=dbc)
+    return render_template('8-cities_by_states.html', dbs=dbs)
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=5000)
