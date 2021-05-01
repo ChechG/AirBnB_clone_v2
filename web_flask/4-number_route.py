@@ -24,6 +24,7 @@ def c(text):
         text = text.replace("_", " ")
     return 'C %s' % text
 
+
 @app.route('/python/<text>')
 @app.route('/python/')
 def py_text(text="is_cool"):
@@ -31,6 +32,7 @@ def py_text(text="is_cool"):
     if "_" in text:
         text = text.replace("_", " ")
     return 'Python %s' % text
+
 
 @app.route('/number/<n>')
 def py_int(n):
