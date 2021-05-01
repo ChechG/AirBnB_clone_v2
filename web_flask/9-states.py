@@ -29,14 +29,9 @@ def st_ci_list(id):
         new = UUID(id, version=4)
     except:
         return render_template('9-states.html')
-    ej = 'State.' + str(id)
+    ej = 'State.' + id
     cities = storage.all(State)
     return render_template('9-states.html', cities=cities, ej=ej)
-
-
-@app.errorhandler(404)
-def page_not_found(error):
-    return render_template('9-states.html')
 
 
 if __name__ == "__main__":
