@@ -21,7 +21,7 @@ def st_ci_list(id=None):
     """ returns html page of state with cities list """
     cit = storage.all(State)
     states = cit.values()
-    if id == None:
+    if id is None:
         return render_template('9-states.html', states=states, id=id)
     else:
         ej = 'State.' + str(id)
