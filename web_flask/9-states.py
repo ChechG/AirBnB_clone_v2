@@ -19,14 +19,14 @@ def teardown_db(exception):
 @app.route('/states/<id>')
 def st_ci_list(id=None):
     """ returns html page of state with cities list """
-    cities = storage.all(State)
+    cit = storage.all(State)
     states = cities.values()
-    if id == None:
+    if id is None:
         return render_template('9-states.html', states=states, id=id)
     else:
         ej = 'State.' + str(id)
         if ej in cities:
-            return render_template('9-states.html', cities=cities, ej=ej, id=id)
+            return render_template('9-states.html', cities=cit, ej=ej, id=id)
         else:
             return render_template('9-states.html')
 
