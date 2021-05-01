@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<HTML lang="en">
+    <HEAD>
+        <TITLE>HBNB</TITLE>
+    </HEAD>
+    <BODY>
+        <H1>Cities</H1>
+        <UL>
+            {%- for i in dbs -%}
+                <LI>State: {{ i.id }}: <B>{{ i.name }}</B></LI>
+                    <UL>
+                        {%- for j in dbc -%}
+                            {% if dbc[j].state_id == i.id %}<LI>City: {{ dbc[j].id }}: <B>{{ dbc[j].name }}</B></LI>{% endif %}
+                        {%- endfor %}
+                    </UL>
+            {% endfor -%}
+        </UL>
+    </BODY>
+</HTML>

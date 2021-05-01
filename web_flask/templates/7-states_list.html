@@ -6,7 +6,7 @@
     <BODY>
         <H1>States</H1>
         <UL>
-            {% for i in db %}
+            {% for i in db|sort(attribute="name") %}
                 <LI>State: {{ i.id }}: <B>{{ i.name }}</B></LI>
             {% endfor %}
         </UL>
