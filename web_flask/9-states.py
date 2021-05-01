@@ -16,25 +16,19 @@ def teardown_db(exception):
 
 
 @app.route('/states')
-def st_list():
-    """ returns html page with states list """
-    states = storage.all(State).values()
-    return render_template('9-states.html', states=states)
-
-
 @app.route('/states/<id>')
-def st_ci_list(id):
+def st_ci_list(id=None):
     """ returns html page of state with cities list """
-    try:
-        new = UUID(id, version=4)
-    except:
-        return render_template('9-states.html')
-    ej = 'State.' + id
     cities = storage.all(State)
-    if cities[ej].id:
-        return render_template('9-states.html', cities=cities, ej=ej)
+    states = cities.values()
+    if id == None:
+        return render_template('9-states.html', states=states, id=id)
     else:
-        return render_template('9-states.html')
+        ej = 'State.' + str(id)
+        if ej in cities:
+            return render_template('9-states.html', cities=cities, ej=ej, id=id)
+        else:
+            return render_template('9-states.html')
 
 
 if __name__ == "__main__":
