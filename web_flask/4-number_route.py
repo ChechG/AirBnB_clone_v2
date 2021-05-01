@@ -38,7 +38,7 @@ def py_text(text="is_cool"):
 def py_int(n):
     """ returns variable string """
     if n.isdigit() is True:
-        return "%s is a number" % n
+        return "%d is a number" % n
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=5000)
