@@ -31,7 +31,10 @@ def st_ci_list(id):
         return render_template('9-states.html')
     ej = 'State.' + id
     cities = storage.all(State)
-    return render_template('9-states.html', cities=cities, ej=ej)
+    if cities[ej].id:
+        return render_template('9-states.html', cities=cities, ej=ej)
+    else:
+        return render_template('9-states.html')
 
 
 if __name__ == "__main__":
