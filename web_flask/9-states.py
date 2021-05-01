@@ -3,7 +3,7 @@
 from flask import Flask, render_template
 from models import storage
 from models import State
-
+from uuid import UUID
 
 app = Flask(__name__)
 app.url_map.strict_slashes = False
@@ -22,9 +22,13 @@ def st_list():
     return render_template('9-states.html', states=states)
 
 
-@app.route('/states/<uuid:id>')
+@app.route('/states/<id>')
 def st_ci_list(id):
     """ returns html page of state with cities list """
+    try:
+        new = UUID(id, version=4)
+    except:
+        return render_template('9-states.html')
     ej = 'State.' + str(id)
     cities = storage.all(State)
     return render_template('9-states.html', cities=cities, ej=ej)
